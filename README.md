@@ -12,7 +12,28 @@ for people that I mentor in my company to understand how databases work under th
 
 SchrödingerDB is a simple key-value store using a Hash Index.
 
-The database is append-only, meaning that once a key-value pair is written to the database, this data is never modified.
+Like most client-server databases, the following components must be implemented:
+
+```mermaid
+block-beta
+columns 1
+  block
+    columns 1
+    Transport
+    space
+    Transport --> QueryProcessor
+    space
+    QueryProcessor --> ExecutionEngine
+    space
+    ExecutionEngine --> StorageEngine
+  end
+```
+
+## Features
+
+### Writes
+
+The database uses append-only data files, meaning that once a key-value pair is written to the database, the data file is never modified.
 Hence, challenges like update and deletion arise.
 
 ```mermaid
@@ -27,6 +48,8 @@ Now, what if we use multiple files (segments) instead of one?
  - What are the challenges?
  - How can we solve them?
 
+### Reads
+
 ```mermaid
 flowchart TD
     A([Client]) -->|GET key| B[(Database)]
@@ -34,11 +57,11 @@ flowchart TD
 Exercise 1: complete the `GET` flowchart
 
 
-## Features
 
-LOL - it's a toy project, what do you expect?
 
-- [ ] Append-only database
+## Roadmap
+
+- [ ] Append-only data files
 - [ ] Indexing
 - [ ] Log file for durability
 - [ ] Query language
