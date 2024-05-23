@@ -70,3 +70,14 @@ Exercise 1: complete the `GET` flowchart
 - [ ] Transactions
 - [ ] Replication
 - [ ] Clustering
+
+## Run the app 
+
+To run the project schrodingerDB you will need to have maven and a java SDK installed
+
+```shell
+mvn clean compile
+mvn test
+mvn package
+java -jar target/schrodingerdb-<Version>.jar
+```
