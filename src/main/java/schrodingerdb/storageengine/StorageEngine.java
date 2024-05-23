@@ -1,4 +1,4 @@
-package main.java.schrodingerdb.storageengine;
+package schrodingerdb.storageengine;
 
 public class StorageEngine {
     

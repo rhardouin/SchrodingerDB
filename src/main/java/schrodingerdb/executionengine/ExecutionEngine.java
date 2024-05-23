@@ -1,4 +1,4 @@
-package main.java.schrodingerdb.executionengine;
+package schrodingerdb.executionengine;
 
 public class ExecutionEngine {
     

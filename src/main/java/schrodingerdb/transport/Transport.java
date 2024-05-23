@@ -1,4 +1,4 @@
-package main.java.schrodingerdb.transport;
+package schrodingerdb.transport;
 
 public class Transport {
     

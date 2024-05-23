@@ -1,4 +1,4 @@
-package main.java.schrodingerdb.queryprocessor;
+package schrodingerdb.queryprocessor;
 
 public class QueryProcessor {
     
