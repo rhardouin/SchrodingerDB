@@ -16,13 +16,10 @@ public class Transport {
     public void handle() {
         System.out.println("New client connected");
 
-        try {
-            BufferedReader input = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
-            PrintWriter output = new PrintWriter(this.socket.getOutputStream(), true);
-
+        try(BufferedReader input = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));PrintWriter output = new PrintWriter(this.socket.getOutputStream(), true);) {
             String receivedText = input.readLine();
-            if ("ping".equalsIgnoreCase(receivedText)) {
-                output.println("pong");
+            if ("PING".equalsIgnoreCase(receivedText)) {
+                socket.getOutputStream().write("+PONG\r\n".getBytes());
             } else {
                 output.println("Error: Invalid request");
             }
@@ -31,5 +28,5 @@ public class Transport {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+            }
 }
