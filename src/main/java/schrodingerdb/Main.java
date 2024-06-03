@@ -11,7 +11,14 @@ public class Main {
             while (true) {
                 Socket socket = serverSocket.accept();
                 Transport transport = new Transport(socket);
-                transport.handle();
+                Thread clientThread = new Thread(() -> {
+                    try {
+                        transport.handle();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+                clientThread.start();
             }
         }
     }
